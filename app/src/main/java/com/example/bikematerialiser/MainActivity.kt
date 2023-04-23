@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Rotates the title text in 3d space so that it aligns with the background wall
         val textTitle: TextView = findViewById<TextView>(R.id.textTitle)
         textTitle.animate().apply {
             duration = 0
