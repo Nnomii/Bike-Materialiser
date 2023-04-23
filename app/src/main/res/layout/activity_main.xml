@@ -28,7 +28,7 @@
         android:textAlignment="center"
         android:fontFamily="@font/mont"
         android:textColor="@color/black"
-        android:rotation="-10"
+        android:rotation="-9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,6 +37,20 @@
         android:shadowDx="-10"
         android:shadowDy="-8"
         android:shadowRadius="20" />
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:paddingTop="@dimen/_170sdp"
+        android:paddingStart="@dimen/_20sdp"
+        android:textSize="@dimen/_20sdp"
+        android:rotation="-9"
+        android:text="@string/lastLocation"
+        tools:ignore="RtlSymmetry" />
 
 <!--    Old buttons:-->
 
@@ -73,6 +87,7 @@
 <!--        android:textColor="@color/orchid"-->
 <!--        android:textSize="@dimen/_24ssp"-->
 <!--        android:stateListAnimator="@animator/button_animation" />-->
+
 
 <!--    New buttons with better animations-->
 
