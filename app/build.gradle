@@ -52,5 +52,5 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
     // button animation
-    implementation 'com.github.connyduck:sparkbutton:1.0.0'
+    implementation 'com.github.connyduck:sparkbutton:4.1.0'
 }
