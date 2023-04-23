@@ -2,9 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.BikeMaterialiser" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/wisteria</item>
+        <item name="colorPrimary">@color/lilac</item>
         <item name="colorPrimaryDark">@color/white</item>
-        <item name="colorAccent">@color/ghostwhite</item>
+        <item name="colorAccent">@color/bluegreen</item>
+        <item name="android:fontFamily">@font/bebas</item>
 
     </style>
 

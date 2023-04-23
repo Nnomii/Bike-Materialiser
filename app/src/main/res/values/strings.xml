@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">BikeMaterialiser</string>
+    <string name="app_name"><i>Bike Materialiser</i></string>
+    <string name="background">background</string>
+    <string name="buttonAddText">Add Placement</string>
+    <string name="buttonHistory">History</string>
 </resources>

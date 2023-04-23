@@ -5,5 +5,10 @@
     <color name="wisteria">#BEA7E5</color>
     <color name="ghostwhite">#F8F4F9</color>
     <color name="lightorange">#FFD6AF</color>
+    <color name="turquoise">#C8F4F9</color>
+    <color name="bluegreen">#3CACAE</color>
+    <color name="orchid">#8D538D</color>
+    <color name="lilac">#EEB5EB</color>
+    <color name="pewter">#ECE3F0</color>
 
 </resources>
