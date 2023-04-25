@@ -5,4 +5,5 @@
     <string name="buttonAddText">Add Placement</string>
     <string name="buttonHistory">History</string>
     <string name="lastLocation"><i>The last location of your bike is \n@location \nat @datetime</i></string>
+    <string name="add_new_location">+ New location</string>
 </resources>

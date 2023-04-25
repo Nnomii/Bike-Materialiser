@@ -137,6 +137,7 @@
         android:id="@+id/navigationAdd"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        app:menu="@menu/add_menu"
         android:layout_gravity="start" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

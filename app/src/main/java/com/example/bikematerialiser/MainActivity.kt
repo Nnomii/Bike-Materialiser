@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.StyleSpan
 import android.view.Gravity
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.core.view.GravityCompat
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         // texts[0] is the title text and texts[1] is the location message text
         val texts = arrayOf(findViewById<TextView>(R.id.textTitle),
             findViewById(R.id.textMessage))
-        texts.forEach { text ->
-            text.animate().apply {
+        texts.forEach {
+            it.animate().apply {
                 duration = 0
                 rotationYBy(9f)
             }.start()
@@ -42,15 +43,21 @@ class MainActivity : AppCompatActivity() {
 //        cv.put("datetime", "19:19 19/05/2000")
 //        database.insert("locations", null, cv)
 
-        // Get the last location from the database and show it in the location message text
-        val cursor = database.rawQuery("SELECT * FROM locations ORDER BY id DESC LIMIT 1", null)
-        if (cursor.moveToNext()) {
-            val lastLocation = SpannableString("The last location of your bike is \n" +
-                cursor.getString(1) +
-                "\nat " +
-                cursor.getString(2))
-            lastLocation.setSpan(StyleSpan(Typeface.ITALIC), 0, lastLocation.length, 0)
-            texts[1].text = lastLocation
+        // Get the last 9 locations from the database
+        val cursor = database.rawQuery("SELECT * FROM locations ORDER BY id DESC LIMIT 9", null)
+        val history = mutableListOf<Pair<String, String>>()
+        var location = 1
+        while (cursor.moveToNext()) {
+            if (location == 1) {
+                val lastLocation = SpannableString("The last location of your bike is \n" +
+                        cursor.getString(1) +
+                        "\nat " +
+                        cursor.getString(2))
+                lastLocation.setSpan(StyleSpan(Typeface.ITALIC), 0, lastLocation.length, 0)
+                texts[1].text = lastLocation
+            }
+            history.add(Pair(cursor.getString(1), cursor.getString(2)))
+            location += 1
         }
         cursor.close()
 
@@ -72,6 +79,21 @@ class MainActivity : AppCompatActivity() {
         buttonAdd.setEventListener { _, _ ->
             drawerAdd.openDrawer(GravityCompat.START)
             true
+        }
+
+        // Populate the add location drawer
+        populateAddDrawer(history)
+    }
+
+    /**
+     * Updates the locations in the add location drawer.
+     * It stores the last 9 locations used for easy access.
+     */
+    private fun populateAddDrawer(history: MutableList<Pair<String, String>>) {
+        var viewNumber = 1
+        history.forEach {
+            // TODO: Find view
+            viewNumber += 1
         }
     }
 }

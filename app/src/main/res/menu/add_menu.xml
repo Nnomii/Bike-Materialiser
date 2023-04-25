@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/addMenu1"
+        android:title="" />
+
+    <item
+        android:id="@+id/addMenu2"
+        android:title="" />
+
+    <item
+        android:id="@+id/addMenu3"
+        android:title="" />
+
+    <item
+        android:id="@+id/addMenu4"
+        android:title="" />
+
+    <item
+        android:id="@+id/addMenu5"
+        android:title="" />
+
+    <item
+        android:id="@+id/addMenu6"
+        android:title="" />
+
+    <item
+        android:id="@+id/addMenu7"
+        android:title="" />
+
+    <item
+        android:id="@+id/addMenu8"
+        android:title="" />
+
+    <item
+        android:id="@+id/addMenu9"
+        android:title="" />
+
+    <item android:title="">
+
+        <menu>
+
+            <item
+                android:id="@+id/addMenuNew"
+                android:title="@string/add_new_location" />
+
+        </menu>
+
+    </item>
+
+</menu>
