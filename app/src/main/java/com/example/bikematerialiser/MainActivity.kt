@@ -6,7 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.StyleSpan
+import android.view.Gravity
+import android.view.View
 import android.widget.TextView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import at.connyduck.sparkbutton.SparkButton
+import at.connyduck.sparkbutton.SparkEventListener
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     /**
@@ -20,9 +27,9 @@ class MainActivity : AppCompatActivity() {
         // Rotates the title text in 3d space so that it aligns with the background wall
         // texts[0] is the title text and texts[1] is the location message text
         val texts = arrayOf(findViewById<TextView>(R.id.textTitle),
-            findViewById<TextView>(R.id.textMessage))
-        texts.forEach {
-            text -> text.animate().apply {
+            findViewById(R.id.textMessage))
+        texts.forEach { text ->
+            text.animate().apply {
                 duration = 0
                 rotationYBy(9f)
             }.start()
@@ -39,12 +46,32 @@ class MainActivity : AppCompatActivity() {
         val cursor = database.rawQuery("SELECT * FROM locations ORDER BY id DESC LIMIT 1", null)
         if (cursor.moveToNext()) {
             val lastLocation = SpannableString("The last location of your bike is \n" +
-                    cursor.getString(1) +
-                    "\nat " +
-                    cursor.getString(2))
+                cursor.getString(1) +
+                "\nat " +
+                cursor.getString(2))
             lastLocation.setSpan(StyleSpan(Typeface.ITALIC), 0, lastLocation.length, 0)
             texts[1].text = lastLocation
         }
         cursor.close()
+
+        // Add and history drawers and buttons
+        val drawerHistory = findViewById<DrawerLayout>(R.id.drawerHistory)
+        val drawerAdd = findViewById<DrawerLayout>(R.id.drawerAdd)
+        val buttonHistory = findViewById<SparkButton>(R.id.buttonHistory)
+        val buttonAdd = findViewById<SparkButton>(R.id.buttonAdd)
+
+        // Prevent swiping for drawer opening, we have buttons for that!
+        drawerHistory.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        drawerAdd.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+
+        // Make the buttons open the drawers
+        buttonHistory.setEventListener { _, _ ->
+            drawerHistory.openDrawer(GravityCompat.END)
+            true
+        }
+        buttonAdd.setEventListener { _, _ ->
+            drawerAdd.openDrawer(GravityCompat.START)
+            true
+        }
     }
 }
